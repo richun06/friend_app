@@ -1,0 +1,8 @@
+<%= form_with(model: @picture, local: true) do |form| %>
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+  <%= form.submit "投稿する" %>
+<% end %>
