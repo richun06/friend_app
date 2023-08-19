@@ -3,6 +3,7 @@
   <%= form.text_field :content %>
   <%= form.label :image %>
   <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
 
   <%= form.submit "投稿する" %>
 <% end %>
