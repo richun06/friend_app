@@ -3,6 +3,7 @@ ja:
     models:
       blog: ブログ
       user: ユーザー
+      picture: 画像投稿
     attributes:
       blog:
         title: タイトル
@@ -15,3 +16,6 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+      picture:
+        content: 本文
+        image: 画像

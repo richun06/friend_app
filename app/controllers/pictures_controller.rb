@@ -14,7 +14,7 @@ class PicturesController < ApplicationController
     if @picture.save
       redirect_to pictures_path, notice: "投稿完了しました"
     else
-
+      render :new
     end
     # byebug
   end
