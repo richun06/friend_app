@@ -1,0 +1,8 @@
+<h1>投稿詳細画面</h1>
+<p>ユーザ名: <%= @picture.user.name %></p>
+<p>本文: <%= @picture.content %></p>
+<% if @picture.image.present? %>
+  <p>画像: <%= image_tag @picture.image.url, :size =>'320x320' %></p>
+<% end %>
+
+<%= link_to "一覧に戻る", pictures_path %>
