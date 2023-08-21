@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ユーザ名</th>
     <th>本文</th>
     <th>画像</th>
   </tr>
@@ -10,7 +11,9 @@
     <tr>
       <td><%= picture.user.name %></td>
       <td><%= picture.content %></td>
-      <td><%= image_tag picture.image.url %></td>
+      <% if picture.image.present? %>
+        <td><%= image_tag picture.image.url, :size =>'320x320' %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
