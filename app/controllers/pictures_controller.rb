@@ -11,10 +11,14 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
-    if @picture.save
-      redirect_to pictures_path, notice: "投稿完了しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @picture.save
+        redirect_to pictures_path, notice: "投稿完了しました"
+      else
+        render :new
+      end
     end
     # byebug
   end
@@ -34,6 +38,12 @@ class PicturesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def confirm
+    @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
+    render :new if @picture.invalid?
   end
 
   private

@@ -12,7 +12,7 @@
       <td><%= picture.user.name %></td>
       <td><%= picture.content %></td>
       <% if picture.image.present? %>
-        <td><%= image_tag picture.image.url, :size =>'320x320' %></td>
+        <td><%= image_tag picture.image.url, :size =>'100x100' %></td>
       <% end %>
       <td><%= link_to '詳細', picture_path(picture.id) %></td>
       <td><%= link_to '編集', edit_picture_path(picture.id) %></td>
