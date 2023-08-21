@@ -14,6 +14,7 @@
       <% if picture.image.present? %>
         <td><%= image_tag picture.image.url, :size =>'320x320' %></td>
       <% end %>
+      <td><%= link_to '編集', edit_picture_path(picture.id) %></td>
     </tr>
   <% end %>
 </table>
