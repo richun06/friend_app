@@ -29,6 +29,11 @@ class PicturesController < ApplicationController
 
   def edit
     @picture = Picture.find(params[:id])
+    if @picture.user == current_user
+      render "edit"
+    else
+      redirect_to pictures_path
+    end
   end
 
   def update
@@ -42,8 +47,12 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find(params[:id])
-    @picture.destroy
-    redirect_to pictures_path, notice: "投稿を削除しました"
+    if @picture.user == current_user
+      @picture.destroy
+      redirect_to pictures_path, notice: "投稿を削除しました"
+    else
+      redirect_to pictures_path
+    end
   end
 
   def confirm
