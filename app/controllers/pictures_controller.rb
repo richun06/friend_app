@@ -40,6 +40,12 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_path, notice: "投稿を削除しました"
+  end
+
   def confirm
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
