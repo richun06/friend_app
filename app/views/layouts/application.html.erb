@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -16,11 +17,11 @@
     <% end %>
 
     <% if logged_in? %>
-      <%= link_to "プロフィール", user_path(current_user.id) %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <%= link_to "プロフィール", user_path(current_user.id), class:"btn btn-primary btn-sm" %>
+      <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class:"btn btn-secondary btn-sm" %>
     <% else %>
-      <%= link_to "アカウント作成", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
+      <%= link_to "アカウント作成", new_user_path, class:"btn btn-primary btn-sm" %>
+      <%= link_to "ログイン", new_session_path, class:"btn btn-primary btn-sm" %>
     <% end %>
     <%= yield %>
   </body>
